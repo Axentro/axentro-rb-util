@@ -52,6 +52,6 @@ module Crypto::Transaction
   end
 
   def __scale_i64(value)
-    BigDecimal(value) * SCALE_DECIMAL
+    (BigDecimal(value) * SCALE_DECIMAL).to_i
   end
 end

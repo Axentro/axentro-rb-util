@@ -12,14 +12,14 @@ describe Transaction do
     json = JSON.parse(transaction)["transaction"]
 
     sender = json["senders"].to_a.first
-    expect(sender["address"].to_s).to eql(from_address)
-    expect(sender["public_key"].to_s).to eql(from_public_key)
-    expect(sender["amount"].to_i).to eql(100000000)
-    expect(sender["fee"].to_i).to eql(10000)
-    expect(sender["signature"].to_s.size).to be > 30
+    expect(sender["address"]).to eql(from_address)
+    expect(sender["public_key"]).to eql(from_public_key)
+    expect(sender["amount"]).to eql(100000000)
+    expect(sender["fee"]).to eql(10000)
+    expect(sender["signature"].size).to be > 30
 
     recipient = json["recipients"].to_a.first
-    expect(recipient["address"].to_s).to eql(to_address)
-    expect(recipient["amount"].to_i).to eql(100000000)
+    expect(recipient["address"]).to eql(to_address)
+    expect(recipient["amount"]).to eql(100000000)
   end
 end
