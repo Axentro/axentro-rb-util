@@ -1,5 +1,3 @@
-require "securerandom"
-
 module Crypto::Keys
   include Crypto::Hashes
 
