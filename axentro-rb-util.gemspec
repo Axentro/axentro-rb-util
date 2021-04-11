@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-    s.name        = 'Axentro-rb-util'
+    s.name        = 'axentro-rb-util'
     s.version     = '0.0.1'
     s.summary     = "Tools for Axentro blockchain crypto in Ruby"
     s.description = "Sending transactions"
