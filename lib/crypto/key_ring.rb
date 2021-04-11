@@ -35,8 +35,8 @@ module Crypto::Keys
         HDKEY::KeyRing.get_master_key_from_seed(_seed) : HDKEY::KeyRing.derive_path(derivation, _seed, HDKEY::HARDENED_AXENTRO)
 
       private_key = PrivateKey.new(keys.private_key, network)
-      _public_key = HDKEY::KeyRing.get_public_key(keys.private_key)
-      public_key = KeyUtils.to_hex(KeyUtils.to_bytes(PublicKey.new(_public_key, network))[1..-1])
+      _public_key = HDKEY::KeyRing.get_public_key(keys.private_key)[2..-1]
+      public_key = PublicKey.new(_public_key, network)
       KeyRing.new(private_key, public_key, private_key.wif, public_key.address, _seed)
     end
 

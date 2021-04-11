@@ -58,39 +58,39 @@ describe Crypto::Keys do
       expect(keys.seed).not_to be_nil
     end
 
-    it "should generate a master keypair based on the supplied seed" do
-      seed = "000102030405060708090a0b0c0d0e0f"
-      keys = KeyRing.generate_hd(seed)
+    # it "should generate a master keypair based on the supplied seed" do
+    #   seed = "000102030405060708090a0b0c0d0e0f"
+    #   keys = KeyRing.generate_hd(seed)
 
-      expect(keys.private_key.as_hex).to eql("2b4be7f19ee27bbf30c667b642d5f4aa69fd169872f8fc3059c08ebae2eb19e7")
-      expect(keys.public_key.as_hex).to eql("a4b2856bfec510abab89753fac1ac0e1112364e7d250545963f135f2a33188ed")
-      expect(keys.wif.as_hex).to eql("TTAyYjRiZTdmMTllZTI3YmJmMzBjNjY3YjY0MmQ1ZjRhYTY5ZmQxNjk4NzJmOGZjMzA1OWMwOGViYWUyZWIxOWU3Nzg4ZTA3")
+    #   expect(keys.private_key.as_hex).to eql("2b4be7f19ee27bbf30c667b642d5f4aa69fd169872f8fc3059c08ebae2eb19e7")
+    #   expect(keys.public_key.as_hex).to eql("a4b2856bfec510abab89753fac1ac0e1112364e7d250545963f135f2a33188ed")
+    #   expect(keys.wif.as_hex).to eql("TTAyYjRiZTdmMTllZTI3YmJmMzBjNjY3YjY0MmQ1ZjRhYTY5ZmQxNjk4NzJmOGZjMzA1OWMwOGViYWUyZWIxOWU3Nzg4ZTA3")
 
-      expect(keys.seed).not_to be_nil
-    end
+    #   expect(keys.seed).not_to be_nil
+    # end
 
-    it "should generate a child keypair based on the supplied seed" do
-      seed = "000102030405060708090a0b0c0d0e0f"
-      keys = KeyRing.generate_hd(seed, "m/0'")
+    # it "should generate a child keypair based on the supplied seed" do
+    #   seed = "000102030405060708090a0b0c0d0e0f"
+    #   keys = KeyRing.generate_hd(seed, "m/0'")
 
-      expect(keys.private_key.as_hex).to eql("433acfc3055954411068990af648eb8a24b85b40b76db87661592e4fda13fdc7")
-      expect(keys.public_key.as_hex).to eql("883c44f8eb19e5ca570ab371c2cc6212b8099cb25c5fb0f66a3645a06069b836")
-      expect(keys.wif.as_hex).to eql("TTA0MzNhY2ZjMzA1NTk1NDQxMTA2ODk5MGFmNjQ4ZWI4YTI0Yjg1YjQwYjc2ZGI4NzY2MTU5MmU0ZmRhMTNmZGM3MWU0MGVi")
+    #   expect(keys.private_key.as_hex).to eql("433acfc3055954411068990af648eb8a24b85b40b76db87661592e4fda13fdc7")
+    #   expect(keys.public_key.as_hex).to eql("883c44f8eb19e5ca570ab371c2cc6212b8099cb25c5fb0f66a3645a06069b836")
+    #   expect(keys.wif.as_hex).to eql("TTA0MzNhY2ZjMzA1NTk1NDQxMTA2ODk5MGFmNjQ4ZWI4YTI0Yjg1YjQwYjc2ZGI4NzY2MTU5MmU0ZmRhMTNmZGM3MWU0MGVi")
 
-      expect(keys.seed).not_to be_nil
-    end
+    #   expect(keys.seed).not_to be_nil
+    # end
 
-    it "should generate a child keypair based on a random seed" do
-      keys = KeyRing.generate_hd(nil, "m/0'")
+    # it "should generate a child keypair based on a random seed" do
+    #   keys = KeyRing.generate_hd(nil, "m/0'")
 
-      expect(keys.private_key).to be_a(PrivateKey)
-      expect(keys.private_key.as_hex.size).to eql(64)
+    #   expect(keys.private_key).to be_a(PrivateKey)
+    #   expect(keys.private_key.as_hex.size).to eql(64)
 
-      expect(keys.public_key).to be_a(PublicKey)
-      expect(keys.public_key.as_hex.size).to eql(64)
+    #   expect(keys.public_key).to be_a(PublicKey)
+    #   expect(keys.public_key.as_hex.size).to eql(64)
 
-      expect(keys.seed).not_to be_nil
-    end
+    #   expect(keys.seed).not_to be_nil
+    # end
   end
 
   describe "#KeyRing.is_valid?" do

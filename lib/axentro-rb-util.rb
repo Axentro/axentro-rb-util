@@ -1,5 +1,4 @@
-require "ed25519"
-# require "ed25519-hd-rb"
+require "ed25519-hd"
 require "crypto/crypto"
 require "crypto/hashes"
 require "crypto/keys/address"
