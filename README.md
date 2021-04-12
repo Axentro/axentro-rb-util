@@ -25,15 +25,15 @@ Or install it yourself as:
 require "axentro-rb-util"
 
 # basic wallet
-basic_wallet = Crypto::Keys.KeyRing.generate(Crypto::KEYS::MAINNET)
+basic_wallet = KeyRing.generate(MAINNET)
 
 # auto generate a seed and create a master wallet from the seed
-Crypto::Keys::KeyRing.generate_hd(Crypto::KEYS::MAINNET)
+KeyRing.generate_hd(nil, nil, MAINNET)
 
 # provide a seed and create a derivation wallet from the seed
 seed = SecureRandom.hex(64)
 derivation = "m/0'/1'"
-Crypto::Keys::KeyRing.generate_hd(seed, derivation, Crypto::KEYS::MAINNET)
+KeyRing.generate_hd(seed, derivation, MAINNET)
 ```
 
 ### Transactions
@@ -48,10 +48,10 @@ to_address = "VDBjY2NmOGMyZmQ0MDc4NTIyNDBmYzNmOWQ3M2NlMzljODExOTBjYTQ0ZjMxMGFl"
 amount = "1"
 
 # generate a signed transaction from the supplied data    
-transaction = Crypto::Transaction.create_signed_send_transaction(from_address, from_public_key, wif, to_address, amount)
+transaction = Transaction.create_signed_send_transaction(from_address, from_public_key, wif, to_address, amount)
 
 # post the transaction to the desired server
-transaction_id = Crypto::Transaction.post_transaction(transaction, "https://testnet.axentro.io")
+transaction_id = Transaction.post_transaction(transaction, "https://testnet.axentro.io")
 ```
 
 ## Contributing
